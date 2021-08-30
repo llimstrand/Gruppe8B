@@ -1,6 +1,6 @@
 # Gruppe8B
 <body>
-  <h1>Kollektivet:D</h1>
+  <h2>Kollektivet:D</h2>
 </body>
 
 HEII
