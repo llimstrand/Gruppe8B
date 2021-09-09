@@ -1,8 +1,10 @@
 body{
     background-color: cornflowerblue;
+    text-align: center;
 }
 
 .kort {
     border: 2px solid black;
     background-color: coral;
+    width: 300px;
 }
