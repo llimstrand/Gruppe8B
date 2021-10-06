@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data fra JSON-fil</title>
+    <style>
+        <!-- Her kan stil defineres (vi skal bruke Cascading Style Sheets) -->
+    </style>
+
+</head>
+<body>
+<div id="debug"></div>
+<canvas id="report" width="500px" height="500px"></canvas>
+<!-- Her skrives alt innhold, som man ønsker å "tegne" på skjermen. -->
+<script>
+    <!-- Her skrives kode i JavaScript som "gir liv" til bilde på skjermen. -->
+
+    var canvas = document.getElementById('report');
+    var context = canvas.getContext('2d');
+
+
+    fetch("bahri1.json", {cache: 'no-cache'})
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.querySelector("#debug").innerText = data.data01 + " " + data
+                .data02;
+
+            var canvas = document.getElementById('report');
+            var context = canvas.getContext('2d');
+
+            context.font = '14px serif';
+            context.fillText('dorn', 30, 24);
+            context.fillText('cora', 30, 74);
+            context.fillText('eors', 30, 124);
+            context.fillText('torm', 30, 174);
+            context.fillText('iore', 30, 224);
+            context.fillText('sori', 30, 274);
+            context.fillText('toro', 30, 324);
+            context.fillText('dorw', 30, 374);
+
+            context.beginPath();
+            context.moveTo(70,20);
+            context.lineTo(170,20);
+
+            //context.beginPath();
+            context.moveTo(70,70);
+            context.lineTo(170,70);
+            context.stroke();
+
+            context.moveTo(70,120);
+            context.lineTo(170,120);
+            context.stroke();
+
+            context.moveTo(70,170);
+            context.lineTo(170,170);
+            context.stroke();
+
+            context.moveTo(70,220);
+            context.lineTo(170,220);
+            context.stroke();
+
+            context.moveTo(70,270);
+            context.lineTo(170,270);
+            context.stroke();
+
+            context.moveTo(70,320);
+            context.lineTo(170,320);
+            context.stroke();
+
+            context.moveTo(70,370);
+            context.lineTo(170,370);
+            context.stroke();
+
+
+            var X = 70 + parseInt(data.dorn, 10);
+            var Y = 20;
+            var R = 5;
+            context.beginPath();
+            context.arc(X, Y, R, 0, 2*Math.PI, false);
+            context.fillStyle = "lightgreen";
+            context.fill();
+            context.lineWidth = 1;
+            context.strokeStyle = "black";
+            context.stroke();
+            //context.closePath();
+
+            var X = 70 + parseInt(data.cora, 10);
+            var Y = 70;
+            var R = 5;
+            context.beginPath();
+            context.arc(X, Y, R, 0, 2*Math.PI, false);
+            context.fillStyle = "red";
+            context.fill();
+            context.lineWidth = 1;
+            context.strokeStyle = "black";
+            context.stroke();
+
+            var X = 70 + parseInt(data.eors, 10);
+            var Y = 120;
+            var R = 5;
+            context.beginPath();
+            context.arc(X, Y, R, 0, 2*Math.PI, false);
+            context.fillStyle = "red";
+            context.fill();
+            context.lineWidth = 1;
+            context.strokeStyle = "black";
+            context.stroke();
+
+            var X = 70 + parseInt(data.torm, 10);
+            var Y = 170;
+            var R = 5;
+            context.beginPath();
+            context.arc(X, Y, R, 0, 2*Math.PI, false);
+            context.fillStyle = "red";
+            context.fill();
+            context.lineWidth = 1;
+            context.strokeStyle = "black";
+            context.stroke();
+
+            var X = 70 + parseInt(data.iore, 10);
+            var Y = 220;
+            var R = 5;
+            context.beginPath();
+            context.arc(X, Y, R, 0, 2*Math.PI, false);
+            context.fillStyle = "red";
+            context.fill();
+            context.lineWidth = 1;
+            context.strokeStyle = "black";
+            context.stroke();
+
+            var X = 70 + parseInt(data.sori, 10);
+            var Y = 270;
+            var R = 5;
+            context.beginPath();
+            context.arc(X, Y, R, 0, 2*Math.PI, false);
+            context.fillStyle = "red";
+            context.fill();
+            context.lineWidth = 1;
+            context.strokeStyle = "black";
+            context.stroke();
+
+            var X = 70 + parseInt(data.toro, 10);
+            var Y = 320;
+            var R = 5;
+            context.beginPath();
+            context.arc(X, Y, R, 0, 2*Math.PI, false);
+            context.fillStyle = "red";
+            context.fill();
+            context.lineWidth = 1;
+            context.strokeStyle = "black";
+            context.stroke();
+
+            var X = 70 + parseInt(data.dorw, 10);
+            var Y = 370;
+            var R = 5;
+            context.beginPath();
+            context.arc(X, Y, R, 0, 2*Math.PI, false);
+            context.fillStyle = "red";
+            context.fill();
+            context.lineWidth = 1;
+            context.strokeStyle = "black";
+            context.stroke();
+
+        });
+
+
+</script>
+</body>
+</html>
