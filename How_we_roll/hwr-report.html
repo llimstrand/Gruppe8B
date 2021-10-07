@@ -9,10 +9,11 @@
         @charset "utf-8";
         /* CSS Document */
         body{
-            font: 15px/1.5 Arial, Helvetica,sans-serif;
+            font: 15px/1.5 Bahnschrift;
             padding:0;
             margin:0;
             background-color:#f4f4f4;
+
         }
 
         /* Global */
@@ -29,7 +30,7 @@
 
         .button_1{
             height:38px;
-            background:#e8491d;
+            background:#90aaf5;
             border:0;
             padding-left: 20px;
             padding-right:20px;
@@ -50,7 +51,7 @@
             color:#ffffff;
             padding-top:30px;
             min-height:70px;
-            border-bottom:#e8491d 3px solid;
+            border-bottom:#90aaf5 3px solid;
         }
 
         header a{
@@ -80,7 +81,7 @@
         }
 
         header .highlight, header .current a{
-            color:#e8491d;
+            color:#90aaf5;
             font-weight:bold;
         }
 
@@ -163,7 +164,7 @@
             padding:20px;
             margin-top:20px;
             color:#ffffff;
-            background-color:#e8491d;
+            background-color:#90aaf5;
             text-align: center;
         }
 
@@ -242,23 +243,25 @@
             console.log(data);
             document.querySelector("#debug").innerText = "Rød:  " + data.data01 + " " + data.data02 + " år";
 
-            context.font = '14px serif';
+            context.font = '14px bahnschrift';
             context.fillText('Morgenfugl', 30, 24);
             context.fillText('Nattravn', 375, 24);
             context.fillText('Jobbe sammen', 30, 74);
             context.fillText('Jobbe alene', 375, 74);
-            context.fillText('Forklare alt', 30, 124);
-            context.fillText('Rett til poenget', 375, 124);
-            context.fillText('Snakke om ting', 30, 174);
-            context.fillText('Gå videre', 375, 174);
-            context.fillText('Snakke ut', 30, 224);
-            context.fillText('Tenke sjæl', 375, 224);
-            context.fillText('Faste tider', 30, 274);
-            context.fillText('Når som helst', 375, 274);
-            context.fillText('Video samtaler', 30, 324);
-            context.fillText('Text innemellom', 375, 324);
-            context.fillText('Møte daglig', 30, 374);
-            context.fillText('Møte ukentlig', 375, 374);
+            context.fillText('Si bakhistorien', 30, 124);
+            context.fillText('Kom til saken', 375, 124);
+            context.fillText('Trenger å få det ut', 30, 174);
+            context.fillText('Vil gå videre', 375, 174);
+            context.fillText('Tenke høyt', 30, 224);
+            context.fillText('Tenke inni seg', 375, 224);
+            context.fillText('Avtal tid med meg', 30, 274);
+            context.fillText('Forstyrr meg om det er noe', 375, 274);
+            context.fillText('Video chat', 30, 324);
+            context.fillText('Melding', 375, 324);
+            context.fillText('Jobbe med pause', 30, 374);
+            context.fillText('Jobbe i ett', 375, 374);
+            context.fillText('Jobbe digitalt', 30, 424);
+            context.fillText('Jobbe analogt', 375, 424);
 
             context.beginPath();
             context.moveTo(150,20);
@@ -293,6 +296,10 @@
             context.lineTo(350,370);
             context.stroke();
 
+            context.moveTo(150,420);
+            context.lineTo(350,420);
+            context.stroke();
+
             var X = 150 + parseInt(data.dorn, 20);
             var Y = 20;
             var R = 5;
@@ -316,7 +323,7 @@
             context.strokeStyle = "black";
             context.stroke();
 
-            var X = 150 + parseInt(data.eors, 20);
+            var X = 150 + parseInt(data.torc, 20);
             var Y = 120;
             var R = 5;
             context.beginPath();
@@ -338,7 +345,7 @@
             context.strokeStyle = "black";
             context.stroke();
 
-            var X = 150 + parseInt(data.iore, 20);
+            var X = 150 + parseInt(data.vorm, 20);
             var Y = 220;
             var R = 5;
             context.beginPath();
@@ -360,7 +367,7 @@
             context.strokeStyle = "black";
             context.stroke();
 
-            var X = 150 + parseInt(data.toro, 20);
+            var X = 150 + parseInt(data.vort, 20);
             var Y = 320;
             var R = 5;
             context.beginPath();
@@ -371,7 +378,18 @@
             context.strokeStyle = "black";
             context.stroke();
 
-            var X = 150 + parseInt(data.dorw, 20);
+            var X = 150 + parseInt(data.born, 20);
+            var Y = 370;
+            var R = 5;
+            context.beginPath();
+            context.arc(X, Y, R, 0, 2*Math.PI, false);
+            context.fillStyle = "red";
+            context.fill();
+            context.lineWidth = 1;
+            context.strokeStyle = "black";
+            context.stroke();
+
+            var X = 150 + parseInt(data.dora, 20);
             var Y = 370;
             var R = 5;
             context.beginPath();
@@ -413,7 +431,7 @@
             context.strokeStyle = "black";
             context.stroke();
 
-            var X = 150 + parseInt(data.eors, 20);
+            var X = 150 + parseInt(data.torc, 20);
             var Y = 120;
             var R = 5;
             context.beginPath();
@@ -435,7 +453,7 @@
             context.strokeStyle = "black";
             context.stroke();
 
-            var X = 150 + parseInt(data.iore, 20);
+            var X = 150 + parseInt(data.vorm, 20);
             var Y = 220;
             var R = 5;
             context.beginPath();
@@ -457,7 +475,7 @@
             context.strokeStyle = "black";
             context.stroke();
 
-            var X = 150 + parseInt(data.toro, 20);
+            var X = 150 + parseInt(data.vort, 20);
             var Y = 320;
             var R = 5;
             context.beginPath();
@@ -468,7 +486,18 @@
             context.strokeStyle = "black";
             context.stroke();
 
-            var X = 150 + parseInt(data.dorw, 20);
+            var X = 150 + parseInt(data.born, 20);
+            var Y = 370;
+            var R = 5;
+            context.beginPath();
+            context.arc(X, Y, R, 0, 2*Math.PI, false);
+            context.fillStyle = "lightgreen";
+            context.fill();
+            context.lineWidth = 1;
+            context.strokeStyle = "black";
+            context.stroke();
+
+            var X = 150 + parseInt(data.dora, 20);
             var Y = 370;
             var R = 5;
             context.beginPath();
