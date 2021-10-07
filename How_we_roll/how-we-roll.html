@@ -39,6 +39,67 @@
             border-radius: 5px;
             border: none;
         }
+
+        header{
+            background:#35424a;
+            color:#ffffff;
+            padding-top:30px;
+            min-height:70px;
+            border-bottom:#e8491d 3px solid;
+        }
+
+        header a{
+            color:#ffffff;
+            text-decoration:none;
+            text-transform: uppercase;
+            font-size:16px;
+        }
+
+        header li{
+            float:left;
+            display:inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header #branding{
+            float:left;
+        }
+
+        header #branding h1{
+            margin:0;
+        }
+
+        header nav{
+            float:right;
+            margin-top:10px;
+        }
+
+        header .highlight, header .current a{
+            color:#e8491d;
+            font-weight:bold;
+        }
+
+        header a:hover{
+            color:#cccccc;
+            font-weight:bold;
+        }
+
+        @media(max-width: 768px){
+            header #branding,
+            header nav,
+            header nav li,
+            #sub_title h1,
+            #boxes .box,
+            article#main-col,
+            aside#sidebar, form, .results{
+                float:none;
+                text-align:center;
+                width:100%;
+            }
+
+            header{
+                padding-bottom:20px;
+            }
     </style>
     <!--
        [[[[[[[[     [[[[[[[[        [[[[   [[[[   [[[[  [[[[
@@ -53,6 +114,20 @@
 <body>
 <!-- Her skrives alt innhold, som man ønsker å "tegne" på skjermen. -->
 <!-- Issue se https://html.spec.whatwg.org/multipage/forms.html#introduction-4 -->
+<header>
+    <div class="container">
+        <div id="branding">
+            <h1><span class="highlight">GRUPPE 8B</span> How we roll</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Hjem</a></li>
+                <li class="current"><a href="how-we-roll.html">Form</a></li>
+                <li><a href="hwr-report.html">DATA</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 <hr>
 <form>
     <p><label for="data01">Navn</label>
