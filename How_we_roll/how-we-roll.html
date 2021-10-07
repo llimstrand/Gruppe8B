@@ -9,11 +9,21 @@
     <style>
         /* Her kan stil defineres (vi skal bruke Cascading Style Sheets) */
         body{
-            font-family: Bahnschrift;
+            font: 15px/1.5 Bahnschrift;
             margin: 0;
             padding: 0;
             text-align: center;
 
+        }
+
+        .container{
+            width:80%;
+            margin:auto;
+            overflow:hidden;
+        }
+        ul{
+            margin:0;
+            padding:0;
         }
 
         .slider { /*https://www.w3schools.com/howto/howto_js_rangeslider.asp */
@@ -91,33 +101,18 @@
             header nav,
             header nav li,
             #sub_title h1,
-            #boxes .box,
-            article#main-col,
-            aside#sidebar, form, .results{
+            form, .results{
                 float:none;
                 text-align:center;
                 width:100%;
             }
-
             header{
                 padding-bottom:20px;
             }
+        }
 
-            .container{
-                width:80%;
-                margin:auto;
-                overflow:hidden;
-            }
     </style>
-    <!--
-       [[[[[[[[     [[[[[[[[        [[[[   [[[[   [[[[  [[[[
-       [::::::[    [::[             [::[   [::[   [::[  [::[
-         [::[      [::[             [::[   [::[   [::[  [::[
-         [::[       [::::[   [[[[   [::[   [::[   [[[[[[[[[[
-         [::[          [::[         [::[   [::[         [::[
-       [::::::[        [::[         [::[   [::[         [::[
-       [[[[[[[[   [[[[[[[[          [[[[   [[[[         [[[[
-    -->
+
 </head>
 <body>
 
@@ -142,6 +137,10 @@
 
     <p><label for="data02">Alder</label>
         <input  class="textbox" type="number" name="data02" id="data02" /></p>
+
+    <p><label for="data03">Farge</label>
+        <input class="textbox" type="color" name="data03" id="data03">
+    </p>
 
     <br>
     <p>Egne preferanser:</p>
