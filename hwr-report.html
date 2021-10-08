@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HOW WE ROLL | GRUPPE 8B</title>
+    <style>
+        /* CSS Document */
+        body{
+            font: 15px/1.5 Bahnschrift;
+            padding:0;
+            margin:0;
+            background-color:#f4f4f4;
+
+        }
+
+        /* Global */
+        .container{
+            width:80%;
+            margin:auto;
+            overflow:hidden;
+        }
+
+        ul{
+            margin:0;
+            padding:0;
+        }
+
+        /* Header **/
+        header{
+            background:#35424a;
+            color:#ffffff;
+            padding-top:30px;
+            min-height:70px;
+            border-bottom:#90aaf5 3px solid;
+        }
+
+        header a{
+            color:#ffffff;
+            text-decoration:none;
+            text-transform: uppercase;
+            font-size:16px;
+        }
+
+        header li{
+            float:left;
+            display:inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header #branding{
+            float:left;
+        }
+
+        header #branding h1{
+            margin:0;
+        }
+
+        header nav{
+            float:right;
+            margin-top:10px;
+        }
+
+        header .highlight, header .current a{
+            color:#90aaf5;
+            font-weight:bold;
+        }
+
+        header a:hover{
+            color:#cccccc;
+            font-weight:bold;
+        }
+
+        /*Form*/
+        form{
+            padding: 10px;
+            text-align: center;
+            float: left;
+            width: 48%;
+        }
+
+        #debug{
+            padding: 30px;
+            width: 100%;
+        }
+
+        /* Media Queries */
+        @media(max-width: 768px){
+            header #branding,
+            header nav,
+            header nav li,
+            #sub_title h1,
+            form{
+                float:none;
+                text-align:center;
+                width:100%;
+            }
+
+            header{
+                padding-bottom:20px;
+            }
+
+            #showcase h1{
+                margin-top:40px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <h1><span class="highlight">GRUPPE 8B</span> How we roll</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Hjem</a></li>
+                <li><a href="how-we-roll.html">Form</a></li>
+                <li class="current"><a href="hwr-report.html">DATA</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div id="debug"></div>
+<canvas id="report" height="450px" width="500px"></canvas>
+
+<script>
+
+    var canvas = document.getElementById('report');
+    var context = canvas.getContext('2d');
+
+    context.font = '14px bahnschrift';
+    context.fillText('Morgenfugl', 30, 24);
+    context.fillText('Nattravn', 375, 24);
+    context.fillText('Jobbe sammen', 30, 74);
+    context.fillText('Jobbe alene', 375, 74);
+    context.fillText('Si bakhistorien', 30, 124);
+    context.fillText('Kom til saken', 375, 124);
+    context.fillText('Trenger å få det ut', 30, 174);
+    context.fillText('Vil gå videre', 375, 174);
+    context.fillText('Tenke høyt', 30, 224);
+    context.fillText('Tenke inni seg', 375, 224);
+    context.fillText('Avtal tid med meg', 30, 274);
+    context.fillText('Forstyrr meg om det er noe', 375, 274);
+    context.fillText('Video chat', 30, 324);
+    context.fillText('Melding', 375, 324);
+    context.fillText('Jobbe med pause', 30, 374);
+    context.fillText('Jobbe i ett', 375, 374);
+    context.fillText('Jobbe digitalt', 30, 424);
+    context.fillText('Jobbe analogt', 375, 424);
+
+    context.beginPath();
+    context.moveTo(150,20);
+    context.lineTo(350,20);
+
+    //context.beginPath();
+    context.moveTo(150,70);
+    context.lineTo(350,70);
+    context.stroke();
+
+    context.moveTo(150,120);
+    context.lineTo(350,120);
+    context.stroke();
+
+    context.moveTo(150,170);
+    context.lineTo(350,170);
+    context.stroke();
+
+    context.moveTo(150,220);
+    context.lineTo(350,220);
+    context.stroke();
+
+    context.moveTo(150,270);
+    context.lineTo(350,270);
+    context.stroke();
+
+    context.moveTo(150,320);
+    context.lineTo(350,320);
+    context.stroke();
+
+    context.moveTo(150,370);
+    context.lineTo(350,370);
+    context.stroke();
+
+    context.moveTo(150,420);
+    context.lineTo(350,420);
+    context.stroke();
+
+    var list = [];
+    var urls = ['https://bacit.info/hwr/20211008090710-138abd676668513b252d1b2e2045ded6.json',
+                'https://bacit.info/hwr/20211008084829-96b835b681b0cc7f1066b4254f816b3f.json',
+                'https://bacit.info/hwr/20211008090314-521fa1a3789b8995afc4607c6790b5a2.json',
+                'https://bacit.info/hwr/20211008085014-32d360efbe3428fd67ee83715830cd01.json'];
+
+    var results = [];
+
+    urls.forEach(function(url, i) {
+        list.push(
+            fetch(url).then(function(res){
+                results[i] = res.json();
+            })
+        );
+    });
+
+    Promise
+        .all(list)
+        .then(function() {
+            for (let entry of results){
+                entry.then(e => {
+                    Object.entries(e).forEach(([key, value]) => {
+                        console.log(`${key}: ${value}`);
+                    })
+
+                    document.querySelector("#debug").innerText += "  " + e.data01 + " " + e.data02 + " år";
+                    /*document.querySelector("#debug").style.color += e.data03;*/
+
+                    var X = 150 + parseInt(e.dorn, 20);
+                    var Y = 20;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = e.data03;
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+                    //context.closePath();
+
+                    var X = 150 + parseInt(e.cora, 20);
+                    var Y = 70;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = e.data03;
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+
+                    var X = 150 + parseInt(e.torc, 20);
+                    var Y = 120;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = e.data03;
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+
+                    var X = 150 + parseInt(e.torm, 20);
+                    var Y = 170;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = e.data03;
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+
+                    var X = 150 + parseInt(e.vorm, 20);
+                    var Y = 220;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = e.data03;
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+
+                    var X = 150 + parseInt(e.sori, 20);
+                    var Y = 270;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = e.data03;
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+
+                    var X = 150 + parseInt(e.vort, 20);
+                    var Y = 320;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = e.data03;
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+
+                    var X = 150 + parseInt(e.born, 20);
+                    var Y = 370;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = e.data03;
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+
+                    var X = 150 + parseInt(e.dora, 20);
+                    var Y = 420;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = e.data03;
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+                })
+            }
+        });
+
+</script>
+</body>
+</html>
