@@ -1,1 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HowWeRoll prototype (lagring)</title>
+    <!-- Med denne filen ønsker vi å bevise at vi kan samle inn data ... -->
+    <style>
+        /* Her kan stil defineres (vi skal bruke Cascading Style Sheets) */
+        body{
+            font: 15px/1.5 Bahnschrift;
+            margin: 0;
+            padding: 0;
+            text-align: center;
 
+        }
+
+        .container{
+            width:80%;
+            margin:auto;
+            overflow:hidden;
+        }
+        ul{
+            margin:0;
+            padding:0;
+        }
+
+        .slider { /*https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+            -webkit-appearance: none; /*fjerner standarden som ligger på range*/
+            width: 50%;
+            height: 15px;
+            border-radius: 5px;
+            background: #90aaf5;
+            outline: none;
+            opacity: 0.7;
+
+        }
+
+        button { /*https://www.w3schools.com/css/css3_buttons.asp */
+            background-color: #90aaf5;
+            border: none;
+            padding: 15px 30px; /*lager knappen rektangulær*/
+            font-size: 16px;
+            font-family: Bahnschrift;
+            border-radius: 5px;
+        }
+
+        .textbox{
+            background-color: #90aaf5;
+            border-radius: 5px;
+            border: none;
+        }
+
+        header{
+            background:#35424a;
+            color:#ffffff;
+            padding-top:30px;
+            min-height:70px;
+            border-bottom:#90aaf5 3px solid;
+        }
+
+        header a{
+            color:#ffffff;
+            text-decoration:none;
+            text-transform: uppercase;
+            font-size:16px;
+        }
+
+        header li{
+            float:left;
+            display:inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header #branding{
+            float:left;
+        }
+
+        header #branding h1{
+            margin:0;
+        }
+
+        header nav{
+            float:right;
+            margin-top:10px;
+        }
+
+        header .highlight, header .current a{
+            color:#90aaf5;
+            font-weight:bold;
+        }
+
+        header a:hover{
+            color:#cccccc;
+            font-weight:bold;
+        }
+
+        @media(max-width: 768px){
+            header #branding,
+            header nav,
+            header nav li,
+            #sub_title h1,
+            form, .results{
+                float:none;
+                text-align:center;
+                width:100%;
+            }
+            header{
+                padding-bottom:20px;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div id="branding">
+            <h1><span class="highlight">GRUPPE 8B</span> How we roll</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Hjem</a></li>
+                <li class="current"><a href="how-we-roll.html">Form</a></li>
+                <li><a href="hwr-report.html">DATA</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<hr>
+<form>
+    <p><label for="data01">Navn</label>
+        <input class="textbox" type="text" name="data01" id="data01" /></p>
+
+    <p><label for="data02">Alder</label>
+        <input  class="textbox" type="number" name="data02" id="data02" /></p>
+
+    <p><label for="data03">Farge</label>
+        <input class="textbox" type="color" name="data03" id="data03">
+    </p>
+
+    <br>
+    <p>Egne preferanser:</p>
+
+    <p>
+        <!-- dorn - day or night -->
+        <label for="dorn" style="text-align: left">Morgenfugl </label>
+        <input class="slider" type="range" id="dorn" name="dorn" value="50">
+        <label for="dorn">Natteravn</label>
+    </p>
+
+    <p>
+        <!-- cora - cooperate or alone -->
+        <label for="cora">Jobbe sammen</label>
+        <input class="slider" type="range" id="cora" name="cora" value="50">
+        <label for="cora">Jobbe alene</label>
+    </p>
+
+    <p>
+        <!-- torc - tell me cut the chase -->
+        <label for="torc">Fortell meg bakhistorien</label>
+        <input class="slider" type="range" id="torc" name="torc" value="50">
+        <label for="torc">Kom til saken</label>
+    </p>
+
+    <p>
+        <!-- torm - talk it out move on -->
+        <label for="torm">Trenger å få det ut</label>
+        <input class="slider" type="range" id="torm" name="torm" value="50">
+        <label for="torm">Vil gå videre</label>
+    </p>
+
+
+    <p>
+        <!-- vorm - verbal og mental -->
+        <label for="vorm">Tenke høyt</label>
+        <input class="slider" type="range" id="vorm" name="vorm" value="50">
+        <label for="vorm">Tenke inni seg</label>
+    </p>
+
+
+    <p>
+        <!-- sori - schedule or interrupt -->
+        <label for="sori">Avtale tid med meg</label>
+        <input class="slider" type="range" id="sori" name="sori" value="50">
+        <label for="sori">Forstyrr meg om det er noe</label>
+    </p>
+
+
+    <p>
+        <!-- vort - video og text -->
+        <label for="vort">Videochat</label>
+        <input class="slider" type="range" id="vort" name="vort" value="50">
+        <label for="vort">Melding</label>
+    </p>
+
+
+    <p>
+        <!-- born - break or not -->
+        <label for="born">Jobbe med pause</label>
+        <input class="slider" type="range" id="born" name="born" value="50">
+        <label for="born">Jobbe i ett</label>
+    </p>
+
+
+    <p>
+        <!-- dora - digital or analog -->
+        <label for="dora">Jobbe digitalt</label>
+        <input class="slider" type="range" id="dora" name="dora" value="50">
+        <label for="dora">Jobbe analogt</label>
+    </p>
+
+    <button type="submit">Send inn</button>
+</form>
+
+<div class="results">
+    <h2>Form Data</h2>
+    <pre></pre>
+</div>
+
+<script>
+    // From https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch (seen 2021-09-27)
+    // Example POST method implementation using fetch:
+    async function postData(url = '', data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache,only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrerPolicy: 'no-referrer', // no-referrer,*no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data) // body data type must match"Content-Type"header
+        });
+        return response.json(); // parses JSON response into native JavaScriptobjects
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        const formJSON = Object.fromEntries(data.entries());
+        const results = document.querySelector('.results pre');
+        postData('https://bacit.info/', formJSON)
+            .then(data => {
+                results.innerText = JSON.stringify(data, null, 2);
+            });
+    }
+    const form = document.querySelector('form');
+    form.addEventListener('submit', handleSubmit);
+</script>
+</body>
+</html>
