@@ -1,4 +1,4 @@
-# Gruppe8B | HOW WE ROLL
+# Gruppe8B
 <body>
   <h2>IS114 - Oppgave How We Roll</h2>
 </body>
