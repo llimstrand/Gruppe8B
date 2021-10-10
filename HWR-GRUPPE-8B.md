@@ -9,6 +9,9 @@
 For kodingen delte vi oss inn i tre grupper innad i gruppa, 2 personer per oppgave. Index.html filen jobbet Mariam og Ole på, how-we-roll.html jobbet Lea og Nora med og hwr-report.html filen jobbet Bahri og Markus med. Vi sørget for at de med mest erfaring jobbet med de med minst erfaring for å gjøre at alle lærte grunnleggende programmering. 
 Vi brukte eksemplene lagt ut i «github/digitnow» for å gi et utgangspunkt for koden. Vi bestemte oss også for å jobbe på en maskin innad i gruppen og å jobbe på en branch i Intellij for å unngå errors osv. Dette fungerte veldig bra og vi kunne lett merge alle filene. I tillegg satt vi ned for å kunne kommentere koden sammen og diskuterte css koden og hvordan siden skulle se ut.
 
+#### NAVIGATION MAP
+![image](https://user-images.githubusercontent.com/89383914/136703766-c12b98b1-d522-4319-af84-5ad403762a8b.png)
 
+#### WIREFRAME
 ![wireframe HWR](https://user-images.githubusercontent.com/89381896/135475487-a33be037-ebf8-4163-9690-9f2c43e0ab41.jpeg)
 
