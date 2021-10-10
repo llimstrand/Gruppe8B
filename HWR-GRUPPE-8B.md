@@ -1,4 +1,4 @@
-##HWR-GRUPPE8B.md og PDF dokument
+## HWR-GRUPPE8B.md og PDF dokument
 Forberedelser til koding:
 Først startet vi å lage brukerhistorier for ansatte og ledere som trengte hjelp under koronapandemien, dette gikk inn i hva de ønsket å oppnå med et program som dette.
 Etter dette lagde vi et par skisser for hånd for å få en forståelse for hvordan vi ville at programmet skulle se ut.
