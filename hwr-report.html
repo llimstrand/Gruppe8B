@@ -125,9 +125,11 @@
 
 <script>
 
+    //Henter ut div og canvas fra koden
     var canvas = document.getElementById('report');
     var context = canvas.getContext('2d');
 
+    //Printer ut tekst i canvas
     context.font = '14px bahnschrift';
     context.fillText('Morgenfugl', 30, 24);
     context.fillText('Nattravn', 375, 24);
@@ -148,6 +150,7 @@
     context.fillText('Jobbe digitalt', 30, 424);
     context.fillText('Jobbe analogt', 375, 424);
 
+    //Tegner linjer i canvas
     context.beginPath();
     context.moveTo(150,20);
     context.lineTo(350,20);
@@ -185,7 +188,16 @@
     context.lineTo(350,420);
     context.stroke();
 
+    // (1) Looper gjennom alle URL-ene
+    // (2) For hver URL fetch med API og lagre i list
+    // (3) I tillegg, når forespørselen er ferdig lagrer resultatet i results
+    // (4) Lag en ny Promise, og når hele listen er gjennomgått (i.e) er funskjonen ferdig
+    // (5) For hvert results lagret console.log key og value
+    // (6) Display data01 og data02 i debug
+
     var list = [];
+
+    //Lagt inn URL-filer fra https://bacit.info/hwr
     var urls = ['https://bacit.info/hwr/20211008090710-138abd676668513b252d1b2e2045ded6.json',
                 'https://bacit.info/hwr/20211008084829-96b835b681b0cc7f1066b4254f816b3f.json',
                 'https://bacit.info/hwr/20211008090314-521fa1a3789b8995afc4607c6790b5a2.json',
@@ -194,26 +206,27 @@
                 'https://bacit.info/hwr/20211010114824-f0668e0a5823f4c8da0275961c6114c9.json'];
     var results = [];
 
-    urls.forEach(function(url, i) {
-        list.push(
+    urls.forEach(function(url, i) { // (1)
+        list.push( // (2)
             fetch(url).then(function(res){
-                results[i] = res.json();
+                results[i] = res.json(); // (3)
             })
         );
     });
 
     Promise
-        .all(list)
+        .all(list) // (4)
         .then(function() {
-            for (let entry of results){
+            for (let entry of results){ // (5)
                 entry.then(e => {
                     Object.entries(e).forEach(([key, value]) => {
                         console.log(`${key}: ${value}`);
                     })
 
-                    document.querySelector("#debug").innerText += "  " + e.data01 + " " + e.data02 + " år";
+                    document.querySelector("#debug").innerText += "  " + e.data01 + " " + e.data02 + " år"; // (6)
                     /*document.querySelector("#debug").style.color += e.data03;*/
 
+                    //Henter ut dataen fra consolen (e.data) og lager prikken
                     var X = 150 + parseInt(e.dorn, 20);
                     var Y = 20;
                     var R = 5;
