@@ -15,7 +15,7 @@
 
         }
 
-        /* Global */
+        /* Header size and position */
         .container{
             width:80%;
             margin:auto;
@@ -27,7 +27,7 @@
             padding:0;
         }
 
-        /* Header **/
+        /* Header style*/
         header{
             background:#35424a;
             color:#ffffff;
@@ -72,14 +72,7 @@
             font-weight:bold;
         }
 
-        /*Form*/
-        form{
-            padding: 10px;
-            text-align: center;
-            float: left;
-            width: 48%;
-        }
-
+        /* input felt style */
         #debug{
             padding: 30px;
             width: 100%;
@@ -108,6 +101,7 @@
     </style>
 </head>
 <body>
+<!----Overskrift og navigasjon---->
 <header>
     <div class="container">
         <div id="branding">
@@ -123,8 +117,10 @@
     </div>
 </header>
 
-
+<!----Display data01 og data02---->
 <div id="debug"></div>
+
+<!----Display Canvas---->
 <canvas id="report" height="450px" width="500px"></canvas>
 
 <script>
