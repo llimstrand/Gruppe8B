@@ -1,1 +1,79 @@
 
+@font-face {
+    font-family: header;
+    src: url(stop.ttf);
+}
+*{
+    margin: 0;
+}
+h1{
+    font-family: header;
+    text-align: center;
+    font-size: 70px;
+    font-weight: 400;
+    color: #05386B;
+}
+h4{
+    text-align: center;
+}
+header{
+    background-color: #EDF5E1;
+}
+body{
+    background-color: #379683;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #05386B;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+button:hover {
+    opacity: 0.8;
+}
+.container {
+    position:absolute;
+    width:50%;
+    left: 23.35%;
+    top:40%;
+    margin-top:-62px;
+    background-color: #EDF5E1;
+    padding: 10px;
+    border: 2px solid #05386B;
+}
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #EDF5E1;
+    height: 50px;
+}
+#center{
+    padding-top: 18px;
+    color: #05386B;
+}
+
