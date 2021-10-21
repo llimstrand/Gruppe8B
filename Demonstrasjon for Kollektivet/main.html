@@ -1,1 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kollektivet</title>
+    <style>
 
+        @font-face {
+            font-family: header;
+            src: url(stop.ttf);
+        }
+        *{
+            margin: 0;
+        }
+        h1{
+            font-family: header;
+            text-align: center;
+            font-size: 70px;
+            font-weight: 400;
+            color: #05386B;
+        }
+        h4{
+            text-align: center;
+        }
+        header{
+            background-color: #EDF5E1;
+        }
+        body{
+            background-color: #EDF5E1;
+        }
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #05386B;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        .container {
+            width:35%;
+            float: right;
+            margin: 150px 160px 0 0;
+            background-color: #EDF5E1;
+            padding: 10px;
+            border: 2px solid #05386B;
+        }
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        footer{
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #EDF5E1;
+            height: 50px;
+        }
+        #center{
+            padding-top: 18px;
+            color: #05386B;
+        }
+
+        #logo{
+            width: 550px;
+            height: 600px;
+            float: left;
+        }
+
+        @media (max-width: 1100px) {
+
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <div id="header">
+        <img id="logo" src="logo.png" alt="bilde1">
+        <h1>KOLLEKTIVET</h1>
+    </div>
+</header>
+<div class="container">
+    <h4>Logg inn i Kollektivet</h4>
+    <label for="uname">
+        <b>Username</b>
+    </label>
+    <input type="text" placeholder="Enter Username" name="uname" id="user" required>
+    <label for="psw">
+        <b>Password</b>
+    </label>
+    <input type="password" placeholder="Enter Password" name="psw" id="pass" required>
+    <button id="submit" type="submit" onclick="checkUser()">Login</button>
+    <p id="forsok"></p>
+</div>
+<footer>
+    <p id="center">Er du en ny bruker? | <a href=""> KLIKK HER</a></p>
+</footer>
+</body>
+<script type="text/javascript">
+
+    var attempt = 3;
+
+    function checkUser(){
+        var username = document.getElementById("user").value;
+        var password = document.getElementById("pass").value;
+
+        if (username == "Marie123" && password == "passord") {
+            window.open("bank.html","_self");
+        }
+        else{
+            attempt--;
+            document.getElementById("forsok").innerHTML="Du har "+attempt+" forsøk igjen.";
+
+            if (attempt == 0) {
+                document.getElementById("user").disabled = true;
+                document.getElementById("pass").disabled =  true;
+                document.getElementById("submit").disabled = true;
+                return false;
+            }
+        }
+    }
+
+</script>
+</html>
