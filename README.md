@@ -1,6 +1,6 @@
 # Gruppe8B
 <body>
-  <h2>IS114 - Oppgave How We Roll</h2>
+  <h2>IS114 - Demonstrasjon til kollektivet</h2>
 </body>
 
 Link til oppgaven
