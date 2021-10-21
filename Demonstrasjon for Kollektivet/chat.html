@@ -1,35 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <title>Kollektivchatten</title>
-    <meta name="description" content="kollektiv" />
-    <link rel="stylesheet" href="style.css" />
+
+    <div id="chatbox">
+        <div id="hedchatbox">username</div>
+        <div id="hedroomchatbox">
+            <input type="text" placeholder="yourname" name="name" class="name" >
+            <div class="clear"></div>
+        </div>
+
+        <div id="chattingbox">
+
+            <div class="message">
+                <div class="infouser"><username_msgs></div>
+                <div class="textmsg"><text_msgs</div>
+            </div>
+
+           <div
+            <label for="msg"><b>Message</b></label>
+            <textarea placeholder="Type message.." name="msg" required></textarea>
+
+            <button type="submit" class="btn">Send</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+           </div>
+            </form>
+        </div>
+
+        </body>
+</html>
 </head>
 <body>
-<div id="wrapper">
-    <div id="menu">
-        <p class="welcome">Velkommen til kollektivchatten <b></b></p>
-        <p class="welcome">Hva kan vi hjelpe deg med? <b></b></p>
-        <p class="logout"><a id="exit" href="#">Avbryt Chat</a></p>
-
-    </div>
-
-    <div id="chatbox"></div>
-
-    <form name="message" action="">
-        <input name="usermsg" type="text" id="usermsg" />
-        <input name="submitmsg" type="submit" id="submitmsg" value="Send" />
-    </form>
-</div>
 
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-</script>
 
-</body>
-</html>
+
 
 
 
