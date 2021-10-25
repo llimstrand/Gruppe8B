@@ -1,14 +1,22 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
+    <title>chatbox</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-    <div id="chatbox">
-        <div id="hedchatbox">username</div>
+    <h1> Velkommen til chat </h1>
+    <h2> Vennligst bekreft brukernavn </h2>
+
+    <div id="hedchatbox">Brukernavn</div>
         <div id="hedroomchatbox">
-            <input type="text" placeholder="yourname" name="name" class="name" >
-            <div class="clear"></div>
-        </div>
 
+
+            <input type="text" placeholder="dittbrukernavnher" name="name" class="name" >
+            <div class="clear"></div>
+            <button type="submit" class="btn">Sjekk inn</button>
+        </div>
         <div id="chattingbox">
 
             <div class="message">
@@ -16,12 +24,18 @@
                 <div class="textmsg"><text_msgs</div>
             </div>
 
-           <div
-            <label for="msg"><b>Message</b></label>
-            <textarea placeholder="Type message.." name="msg" required></textarea>
+            <p>Mottaker</p>
+            <textarea placeholder="Brukernavn sender " name="msg" required></textarea>
+
+           <div>
+            <p> Deg</p>
+            <textarea placeholder="Chat her.." name="msg" required></textarea>
 
             <button type="submit" class="btn">Send</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Lukk</button>
+
+
+           </div>
            </div>
             </form>
         </div>
@@ -29,13 +43,4 @@
         </body>
 </html>
 </head>
-<body>
-
-
-
-
-
-
-
-
 
