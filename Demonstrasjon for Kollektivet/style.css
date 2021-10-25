@@ -1,1 +1,42 @@
+header{
+    background:#35424a;
+    color: #ffffff;
+    padding-top:30px;
+    min-height:70px;
+    border-bottom:#90aaf5 3px solid;
+    font-family: serif;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+.tab button.active {
+    background-color: #565659;
+
+}
+
+.boks {
+    height: 20px;
+    width: 20px;
+
+}
+
+
+
+
+
+
 
