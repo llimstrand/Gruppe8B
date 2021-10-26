@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<head>
+    <title>chatbox</title>
 
+    <style>
+
+    body {
+        background: steelblue;
+
+    }
+
+    button {
+        color: darkblue;
+
+    }
+
+    h1 {
+        color: lightblue ;
+    }
+
+    h2 {
+        color: lightblue;
+    }
+
+    div {
+        color: aliceblue;
+    }
+
+</style>
+</head>
+
+<body>
+
+    <h1> Velkommen til chat </h1>
+    <h2> Vennligst bekreft brukernavn </h2>
+
+    <div id="hedchatbox">Brukernavn</div>
+        <div id="hedroomchatbox">
+
+
+            <input type="text" placeholder="dittbrukernavnher" name="name" class="name" >
+            <div class="clear"></div>
+            <button type="submit" class="btn">Sjekk inn</button>
+        </div>
+        <div id="chattingbox">
+
+            <div class="message">
+                <div class="infouser"><username_msgs></div>
+                <div class="textmsg"><text_msgs</div>
+            </div>
+
+            <p>Mottaker</p>
+            <textarea placeholder="Brukernavn sender " name="msg" required></textarea>
+
+           <div>
+            <p> Deg</p>
+            <textarea placeholder="Chat her.." name="msg" required></textarea>
+
+            <button type="submit" class="btn">Send</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Lukk</button>
+
+
+           </div>
+           </div>
+            </form>
+        </div>
+
+        </body>
+</html>
