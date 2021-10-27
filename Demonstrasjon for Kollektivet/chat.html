@@ -1,70 +1,192 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>chatbox</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kollektivet Personalia</title>
 
-    <style>
-
-    body {
-        background: steelblue;
-
-    }
-
-    button {
-        color: darkblue;
-
-    }
-
-    h1 {
-        color: lightblue ;
-    }
-
-    h2 {
-        color: lightblue;
-    }
-
-    div {
-        color: aliceblue;
-    }
-
-</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.min.css'>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
 </head>
+<style>
+    /* CSS Document */
+    body{
+        font: 15px/1.5 Bahnschrift;
+        padding:0;
+        margin:0;
+        background-color:#f4f4f4;
+    }
 
+    /* Global */
+    .container{
+        width:80%;
+        margin:auto;
+        overflow:hidden;
+    }
+
+    ul{
+        margin:0;
+        padding:0;
+    }
+
+    /* Header **/
+    header{
+        background:#379683;
+        color:#ffffff;
+        padding-top:30px;
+        min-height:70px;
+        border-bottom:#90aaf5 3px solid;
+    }
+
+    header a{
+        color:#ffffff;
+        text-decoration:none;
+        text-transform: uppercase;
+        font-size:16px;
+    }
+
+    header li{
+        float:left;
+        display:inline;
+        padding: 0 20px 0 20px;
+    }
+
+    header #branding{
+        float:left;
+    }
+
+    header #branding{
+        margin:0;
+    }
+
+    header nav{
+        float:right;
+        margin-top:10px;
+    }
+
+    header .highlight, header .current a{
+        color:#05386B;
+        font-weight:bold;
+    }
+
+    header a:hover{
+        color:#cccccc;
+        font-weight:bold;
+    }
+    form{
+        max-width: 500px;
+        margin: 10px auto;
+        border: 1px solid #ccc;
+    }
+    .msg-wrapper{
+        max-height: 250px;
+        overflow: auto;
+    }
+    .msg-wrapper em{
+        font-size: 15px;
+        padding-right: 20px;
+        font-weight: bold;
+    }
+    .msg-wrapper div{
+        font-size: 16px
+    }
+
+    /* Media Queries */
+    @media(max-width: 768px){
+        header #branding,
+        header nav,
+        header nav li,
+        #sub_title h1,
+        #boxes .box,
+        form{
+            float:none;
+            text-align:center;
+            width:100%;
+        }
+
+        header{
+            padding-bottom:20px;
+        }
+
+        #showcase h1{
+            margin-top:40px;
+        }
+    }
+</style>
 <body>
 
-    <h1> Velkommen til chat </h1>
-    <h2> Vennligst bekreft brukernavn </h2>
-
-    <div id="hedchatbox">Brukernavn</div>
-        <div id="hedroomchatbox">
-
-
-            <input type="text" placeholder="dittbrukernavnher" name="name" class="name" >
-            <div class="clear"></div>
-            <button type="submit" class="btn">Sjekk inn</button>
+<header>
+    <div class="container">
+        <div id="branding">
+            <h1><span class="highlight">KOLLEKTIVET</span> Chat</h1>
         </div>
-        <div id="chattingbox">
-
-            <div class="message">
-                <div class="infouser"><username_msgs></div>
-                <div class="textmsg"><text_msgs</div>
-            </div>
-
-            <p>Mottaker</p>
-            <textarea placeholder="Brukernavn sender " name="msg" required></textarea>
-
-           <div>
-            <p> Deg</p>
-            <textarea placeholder="Chat her.." name="msg" required></textarea>
-
-            <button type="submit" class="btn">Send</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Lukk</button>
-
-
-           </div>
-           </div>
-            </form>
+        <nav>
+            <ul>
+                <li><a href="personalia.html">Personalia</a></li>
+                <li><a href="oppgaver.html">Oppgaver</a></li>
+                <li class="current"><a href="chat.html">Chat</a></li>
+                <li><a href="index.html">Logg ut</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<form>
+    <div class="row">
+        <div class="large-12 columns">
+            <div id='messagesDiv' class="msg-wrapper"></div>
+            <hr />
         </div>
+    </div>
 
-        </body>
+    <div class="row">
+        <div class="large-12 columns">
+            <label>Name
+                <input type="text" id='nameInput' placeholder='Name' />
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <label>Message
+                <textarea id='messageInput' placeholder='Message'></textarea>
+            </label>
+        </div>
+    </div>
+
+</form>
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCzK_BLFaLoNQl-mUxLpUw4ijjShlVeJ58",
+        authDomain: "chabox-d8669.firebaseapp.com",
+        databaseURL: "https://chabox-d8669.firebaseio.com",
+        projectId: "chabox-d8669",
+        storageBucket: "",
+        messagingSenderId: "741330796322"
+    };
+    firebase.initializeApp(config);
+
+    var myDataRef = new Firebase('https://thanhchat.firebaseio.com');
+    $('#messageInput').keypress(function (e) {
+        if (e.keyCode == 13) {
+            var name = $('#nameInput').val();
+            var text = $('#messageInput').val();
+            myDataRef.push({name: name, text: text});
+            $('#messageInput').val('');
+        }
+    });
+    myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        displayChatMessage(message.name, message.text);
+    });
+    function displayChatMessage(name, text) {
+        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+    };
+</script>
+</body>
 </html>

@@ -1,48 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
     <title>Document</title>
-</head>
+    </head>
+<style>
+    /* CSS Document */
+    body{
+        font: 15px/1.5 Bahnschrift;
+        padding:0;
+        margin:0;
+        background-color:#f4f4f4;
+    }
 
-DemonatrajsonforKollektivet/
+    /* Global */
+    .container{
+        width:80%;
+        margin:auto;
+        overflow:hidden;
+    }
+
+    ul{
+        margin:0;
+        padding:0;
+    }
+
+    /* Header **/
+    header{
+        background:#379683;
+        color:#ffffff;
+        padding-top:30px;
+        min-height:70px;
+        border-bottom:#90aaf5 3px solid;
+    }
+
+    header a{
+        color:#ffffff;
+        text-decoration:none;
+        text-transform: uppercase;
+        font-size:16px;
+    }
+
+    header li{
+        float:left;
+        display:inline;
+        padding: 0 20px 0 20px;
+    }
+
+    header #branding{
+        float:left;
+    }
+
+    header #branding h1{
+        margin:0;
+    }
+
+    header nav{
+        float:right;
+        margin-top:10px;
+    }
+
+    header .highlight, header .current a{
+        color:#05386B;
+        font-weight:bold;
+    }
+
+    header a:hover{
+        color:#cccccc;
+        font-weight:bold;
+    }
+
+    /* Boxes */
+    #boxes{
+        margin-top:20px;
+    }
+
+    #boxes .box{
+        float:left;
+        text-align: center;
+        width:48%;
+        padding:10px;
+    }
+
+    #boxes .box img{
+        height: 70%;
+        width: 70%;
+    }
+
+    #boxes .box li{
+        font-size: 20px;
+    }
+
+    footer{
+        padding:20px;
+        margin-top:20px;
+        color:#ffffff;
+        background-color:#90aaf5;
+        text-align: center;
+    }
+
+    .center{
+        margin: auto;
+        width: 30%;
+    }
+
+    .over{
+        width: 99%;
+        text-align: center;
+        font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+        color: #05386B;
+    }
+    main{
+        border: 2px solid black;
+    }
+    input{
+        width: 99%;
+        height: 18px;
+    }
+    .inline-field{
+        cursor: pointer;
+        position: relative;
+        padding: 12px 8px 12px 40px;
+        list-style-type: none;
+        background: #eee;
+        font-size: 18px;
+        transition: 0.2s;
+    }
+    .inline-field:hover{
+        background: #ddd;
+    }
+
+    /* Media Queries */
+    @media(max-width: 768px){
+        header #branding,
+        header nav,
+        header nav li,
+        #sub_title h1,
+        #boxes .box,
+        form{
+            float:none;
+            text-align:center;
+            width:100%;
+        }
+
+        header{
+            padding-bottom:20px;
+        }
+
+        #showcase h1{
+            margin-top:40px;
+        }
+    }
+</style>
 <body>
 
 <header>
     <div class="container">
         <div id="branding">
-            <h1>KOLLEKTIVET</h1>
-
-    <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'Personalia')">Personalia</button>
-        <button class="tablinks" onclick="openCity(event, 'oppgaver')">Oppgaver</button>
-        <button class="tablinks" onclick="openCity(event, 'Chat')">Chat</button>
-        <button class="tablinks" onclick="openCity(event, 'Kalender')">Kalender</button>
-        <button class="tablinks" onclick="openCity(event, 'Instillinger')">Instillinger</button>
+            <h1><span class="highlight">KOLLEKTIVET</span> Oppgaver</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="personalia.html">Personalia</a></li>
+                <li class="current"><a href="oppgaver.html">Oppgaver</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><a href="index.html">Logg ut</a></li>
+            </ul>
+        </nav>
     </div>
 </header>
+<br>
+<main class="center">
+    <h1 class="over">Ukesoppgaver</h1>
 
+    <input type="text" id="inpTODO" placeholder="Hva må jeg huske å gjøre?" autofocus>
 
-<div> <form>
-    <input class="boks" type="checkbox">
-    <label>Vaske bad</label>
-    <br>
-    <input type="checkbox" class="boks">
-    <label>Rydde stua</label>
-    <br>
-    <input type="checkbox" class="boks">
-    <label>Hente post</label>
-    <br>
-    <input type="checkbox" class="boks">
-    <label>Kjøpe mat</label>
-</form>
-</div>
+    <section id="todolist">
 
+        <div class="inline-field" id="primary_key_01">
+            <input type="checkbox">
+            <input type="text" class="editItem" style="display:none">
+            <label class="todolabel">Vaske badet</label>
+            <label class="delete">X</label>
+        </div>
+    </section>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAwvAa3eebvLguf3r67sYeEET24Jm0K4CM",
+        authDomain: "todos-a09b1.firebaseapp.com",
+        databaseURL: "https://todos-a09b1.firebaseio.com",
+        projectId: "todos-a09b1",
+        storageBucket: "todos-a09b1.appspot.com",
+        messagingSenderId: "1000406779047"
+    };
+    firebase.initializeApp(config);
+</script>
+<script>
+
+    var inpTODO = document.getElementById("inpTODO")
+    var todolist = document.getElementById("todolist")
+
+    var database = firebase.database();
+    var todos = database.ref("todos");
+
+    function endreVerdi(){
+        this.style.display = "none";
+        var tekst = this.value;
+        var label = this.parentElement.querySelector(".todolabel");
+        label.innerText = tekst;
+        label.style.display = "block";
+    }
+
+    function edit(){
+        this.style.display = "none";
+        var tekst = this.innerText;
+        var inputFelt = this.parentElement.querySelector("editItem");
+        inputFelt.value = tekst;
+        inputFelt.style.display = "block";
+        inputFelt.focus();
+
+        inputFelt.onblur = endreVerdi;
+        inputFelt.onchange = endreVerdi;
+    }
+
+    var labels = document.querySelectorAll("#todolist > div > label.todolabel");
+    for(var label of labels){
+        label.ondblclick = edit;
+    }
+
+    function lagreTodo(){
+        todos.push({
+            tekst: inpTODO.value,
+            done: false
+        })
+
+        inpTODO.value = "";
+        inpTODO.focus();
+    }
+
+    function slett(pk) {
+        var todo = todos.child(pk);
+        todo.remove();
+        var div = document.getElementById(pk);
+        todolist.removeChild(div);
+    }
+
+    function edit(pk){
+        var todo = todos.child(pk);
+
+        var label = document.querySelector(`#${pk} .todolabel`);
+        label.style.display = "none";
+        var tekst = label.innerText;
+
+        var inputfelt = document.querySelector(`#${pk} .editItem`);
+        inputfelt.style.display = "block";
+        inputfelt.value = tekst;
+        inputfelt.focus();
+
+        inputfelt.onblur = function(){
+            inputfelt.style.display = "none";
+            label.style.display = "block";
+        };
+
+        inputfelt.onchange = function(){
+            todo.update( {tekst: inputfelt.value} );
+            inputfelt.style.display = "none";
+            label.style.display = "block";
+            label	.innerText = inputfelt.value;
+        };
+
+    }
+
+    function visTodo(snap){
+
+        var pk = snap.key;
+        var todo = snap.val();
+
+        todolist.innerHTML += `
+			<div class="inline-field" id="${pk}">
+			<input type="checkbox">
+			<input type="text" class="editItem" style="display:none">
+			<label class="todolabel" ondblclick="edit('${pk}')">${todo.tekst}</label>
+			<label class="delete" onclick="slett('${pk}')">X</label>
+			</div>
+			`;
+    }
+
+    inpTODO.onchange = lagreTodo;
+    todos.on("child_added",visTodo)
+
+</script>
 </body>
 </html>
