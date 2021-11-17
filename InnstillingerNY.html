@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style media="screen">
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Bahnschrift;
+            text-align: center;
+        }
+        header{
+            height: 10%;
+        }
+        h1{
+            padding: 20px;
+            color: #065c56;
+        }
+        .main{
+            text-align: center;
+            border-radius: 20px;
+            background-color: lightblue;
+            margin: 0 20px 0 20px;
+        }
+        .stil{
+            color: #065c56;
+            padding: 15px;
+            border-bottom: 1px solid black;
+        }
+        .stil:hover{
+            background-color: beige;
+        }
+        .stil2{
+            color: #065c56;
+            padding: 15px;
+        }
+        .stil2:hover{
+            background-color: beige;
+        }
+        .center{
+            text-align: center;
+        }
+        .btn{
+            bottom: 20%;
+            position: absolute;
+            width: 200px;
+            height: 50px;
+            background-color: #ff9f1c;
+            border: none;
+            border-radius: 15px;
+            color: white;
+            font-size: 20px;
+            margin-left: -100px;
+
+        }
+        .btn:hover{
+            border: 1px solid black;
+            cursor: pointer;
+        }
+        
+        .pil{
+            color: #065c56;
+            text-decoration: none;
+            position: absolute;
+            left: 10%;
+            font-size: xx-large;
+            top: 2.5%;
+        }
+    </style>
+</head>
+<body>
+    
+<header>
+    <a class="pil" href="personalia.html"> </a>
+    <h1>Innstillinger</h1>
+</header>
+    
+<div class="main">
+    <div class="stil">
+        <p>Rediger bruker</p>
+    </div>
+    <div class="stil">
+        <p>Rediger kollektiv</p>
+    </div>
+    <div class="stil">
+        <p>Språk</p>
+    </div>
+    <div class="stil">
+        <a href="varslinger.html" style="text-decoration: none; color: #065c56">
+            <p>Varslinger og lyd</p>
+        </a>
+    </div>
+    <div class="stil2">
+        <p>Retningslinjer</p>
+    </div>
+</div>
+    
+<div class="center">
+        <button class="btn" id="signout">Logg ut</button>
+</div>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+    import { getAuth, signOut, onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyC-h5KwaI2lRtQiK4vzAg0y2ODCEAcAm4Y",
+        authDomain: "registrer-loggin.firebaseapp.com",
+        databaseURL: "https://registrer-loggin-default-rtdb.europe-west1.firebasedatabase.app/",
+        projectId: "registrer-loggin",
+        storageBucket: "registrer-loggin.appspot.com",
+        messagingSenderId: "753564831618",
+        appId: "1:753564831618:web:abfe5116635b66e141099b"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById("signout").addEventListener('click', function(){
+
+        const auth = getAuth();
+
+        signOut(auth).then(() => {
+            location.replace("index.html");
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorCode + errorMessage);
+        });
+    })
+
+</script>
+</body>
+</html>
